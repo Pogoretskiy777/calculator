@@ -1,6 +1,7 @@
-let firstNum;
-let secondNum;
-let operator;
+let num = "";
+let firstNum = null;
+let secondNum = null;
+let operator = null;
 
 function add(firstNum, secondNum) {
   return firstNum + secondNum;
@@ -32,18 +33,43 @@ function operate(firstNum, secondNum, operator) {
 
 const display = document.querySelector(".display");
 const buttons = document.querySelectorAll("button");
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.textContent === "+") {
       display.textContent += " + ";
+      firstNum = parseInt(num);
+      num = "";
+      operator = button.textContent;
     } else if (button.textContent === "-") {
       display.textContent += " - ";
+      firstNum = parseInt(num);
+      num = "";
+      operator = button.textContent;
     } else if (button.textContent === "x") {
       display.textContent += " x ";
+      firstNum = parseInt(num);
+      num = "";
+      operator = button.textContent;
     } else if (button.textContent === "/") {
       display.textContent += " / ";
+      firstNum = parseInt(num);
+      num = "";
+      operator = button.textContent;
+    } else if (button.textContent === "=") {
+      if (typeof firstNum === "number") {
+        secondNum = parseInt(num);
+        display.textContent = operate(firstNum, secondNum, operator);
+      }
+    } else if (button.textContent === "clear") {
+      display.textContent = "";
+      num = "";
+      firstNum = null;
+      secondNum = null;
+      operator = null;
     } else {
       display.textContent += button.textContent;
+      num += button.textContent.toString();
     }
   });
 });
