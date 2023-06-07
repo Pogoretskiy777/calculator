@@ -29,3 +29,21 @@ function operate(firstNum, secondNum, operator) {
     return divide(firstNum, secondNum);
   }
 }
+
+const display = document.querySelector(".display");
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.textContent === "+") {
+      display.textContent += " + ";
+    } else if (button.textContent === "-") {
+      display.textContent += " - ";
+    } else if (button.textContent === "x") {
+      display.textContent += " x ";
+    } else if (button.textContent === "/") {
+      display.textContent += " / ";
+    } else {
+      display.textContent += button.textContent;
+    }
+  });
+});
