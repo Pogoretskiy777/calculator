@@ -39,35 +39,80 @@ buttons.forEach((button) => {
     if (button.textContent === "+") {
       if (operator === null) {
         display.textContent += " + ";
-        firstNum = parseInt(num);
+        if (firstNum === null) {
+          firstNum = parseInt(num);
+        }
         num = "";
         operator = button.textContent;
+      } else {
+        secondNum = parseInt(num);
+        answer = operate(firstNum, secondNum, operator);
+        operator = button.textContent;
+        display.textContent = answer + " + ";
+        firstNum = answer;
+        secondNum = null;
+        num = "";
       }
     } else if (button.textContent === "-") {
       if (operator === null) {
         display.textContent += " - ";
-        firstNum = parseInt(num);
+        if (firstNum === null) {
+          firstNum = parseInt(num);
+        }
         num = "";
         operator = button.textContent;
+      } else {
+        secondNum = parseInt(num);
+        answer = operate(firstNum, secondNum, operator);
+        operator = button.textContent;
+        display.textContent = answer + " - ";
+        firstNum = answer;
+        secondNum = null;
+        num = "";
       }
     } else if (button.textContent === "x") {
       if (operator === null) {
         display.textContent += " x ";
-        firstNum = parseInt(num);
+        if (firstNum === null) {
+          firstNum = parseInt(num);
+        }
         num = "";
         operator = button.textContent;
+      } else {
+        secondNum = parseInt(num);
+        answer = operate(firstNum, secondNum, operator);
+        operator = button.textContent;
+        display.textContent = answer + " x ";
+        firstNum = answer;
+        secondNum = null;
+        num = "";
       }
     } else if (button.textContent === "/") {
       if (operator === null) {
         display.textContent += " / ";
-        firstNum = parseInt(num);
+        if (firstNum === null) {
+          firstNum = parseInt(num);
+        }
         num = "";
         operator = button.textContent;
+      } else {
+        secondNum = parseInt(num);
+        answer = operate(firstNum, secondNum, operator);
+        operator = button.textContent;
+        display.textContent = answer + " / ";
+        firstNum = answer;
+        secondNum = null;
+        num = "";
       }
     } else if (button.textContent === "=") {
       if (typeof firstNum === "number") {
         secondNum = parseInt(num);
-        display.textContent = operate(firstNum, secondNum, operator);
+        answer = operate(firstNum, secondNum, operator);
+        display.textContent = answer;
+        firstNum = answer;
+        secondNum = null;
+        operator = null;
+        num = "";
       }
     } else if (button.textContent === "clear") {
       display.textContent = "";
