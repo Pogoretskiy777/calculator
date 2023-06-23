@@ -37,25 +37,33 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.textContent === "+") {
-      display.textContent += " + ";
-      firstNum = parseInt(num);
-      num = "";
-      operator = button.textContent;
+      if (operator === null) {
+        display.textContent += " + ";
+        firstNum = parseInt(num);
+        num = "";
+        operator = button.textContent;
+      }
     } else if (button.textContent === "-") {
-      display.textContent += " - ";
-      firstNum = parseInt(num);
-      num = "";
-      operator = button.textContent;
+      if (operator === null) {
+        display.textContent += " - ";
+        firstNum = parseInt(num);
+        num = "";
+        operator = button.textContent;
+      }
     } else if (button.textContent === "x") {
-      display.textContent += " x ";
-      firstNum = parseInt(num);
-      num = "";
-      operator = button.textContent;
+      if (operator === null) {
+        display.textContent += " x ";
+        firstNum = parseInt(num);
+        num = "";
+        operator = button.textContent;
+      }
     } else if (button.textContent === "/") {
-      display.textContent += " / ";
-      firstNum = parseInt(num);
-      num = "";
-      operator = button.textContent;
+      if (operator === null) {
+        display.textContent += " / ";
+        firstNum = parseInt(num);
+        num = "";
+        operator = button.textContent;
+      }
     } else if (button.textContent === "=") {
       if (typeof firstNum === "number") {
         secondNum = parseInt(num);
