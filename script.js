@@ -4,19 +4,39 @@ let secondNum = null;
 let operator = null;
 
 function add(firstNum, secondNum) {
-  return firstNum + secondNum;
+  if (typeof firstNum === "number" && typeof secondNum === "number") {
+    return firstNum + secondNum;
+  } else {
+    return "Can not subtract non-numbers.";
+  }
 }
 
 function subtract(firstNum, secondNum) {
-  return firstNum - secondNum;
+  if (typeof firstNum === "number" && typeof secondNum === "number") {
+    return firstNum - secondNum;
+  } else {
+    return "Can not add non-numbers.";
+  }
 }
 
 function multiply(firstNum, secondNum) {
-  return firstNum * secondNum;
+  if (typeof firstNum === "number" && typeof secondNum === "number") {
+    return firstNum * secondNum;
+  } else {
+    return "Can not multiply non-numbers.";
+  }
 }
 
 function divide(dividend, divisor) {
-  return dividend / divisor;
+  if (typeof dividend === "number" && typeof divisor === "number") {
+    if (divisor === 0) {
+      return "Nah bro.";
+    } else {
+      return dividend / divisor;
+    }
+  } else {
+    return "Can not divide non-numbers.";
+  }
 }
 
 function operate(firstNum, secondNum, operator) {
@@ -42,16 +62,18 @@ buttons.forEach((button) => {
         if (firstNum === null) {
           firstNum = parseInt(num);
         }
-        num = "";
+        num = " ";
         operator = button.textContent;
       } else {
-        secondNum = parseInt(num);
-        answer = operate(firstNum, secondNum, operator);
-        operator = button.textContent;
-        display.textContent = answer + " + ";
-        firstNum = answer;
-        secondNum = null;
-        num = "";
+        if (num !== " ") {
+          secondNum = parseInt(num);
+          answer = operate(firstNum, secondNum, operator);
+          operator = button.textContent;
+          display.textContent = answer + " + ";
+          firstNum = answer;
+          secondNum = null;
+          num = "";
+        }
       }
     } else if (button.textContent === "-") {
       if (operator === null) {
@@ -59,16 +81,18 @@ buttons.forEach((button) => {
         if (firstNum === null) {
           firstNum = parseInt(num);
         }
-        num = "";
+        num = " ";
         operator = button.textContent;
       } else {
-        secondNum = parseInt(num);
-        answer = operate(firstNum, secondNum, operator);
-        operator = button.textContent;
-        display.textContent = answer + " - ";
-        firstNum = answer;
-        secondNum = null;
-        num = "";
+        if (num !== " ") {
+          secondNum = parseInt(num);
+          answer = operate(firstNum, secondNum, operator);
+          operator = button.textContent;
+          display.textContent = answer + " - ";
+          firstNum = answer;
+          secondNum = null;
+          num = "";
+        }
       }
     } else if (button.textContent === "x") {
       if (operator === null) {
@@ -76,16 +100,18 @@ buttons.forEach((button) => {
         if (firstNum === null) {
           firstNum = parseInt(num);
         }
-        num = "";
+        num = " ";
         operator = button.textContent;
       } else {
-        secondNum = parseInt(num);
-        answer = operate(firstNum, secondNum, operator);
-        operator = button.textContent;
-        display.textContent = answer + " x ";
-        firstNum = answer;
-        secondNum = null;
-        num = "";
+        if (num !== " ") {
+          secondNum = parseInt(num);
+          answer = operate(firstNum, secondNum, operator);
+          operator = button.textContent;
+          display.textContent = answer + " x ";
+          firstNum = answer;
+          secondNum = null;
+          num = "";
+        }
       }
     } else if (button.textContent === "/") {
       if (operator === null) {
@@ -93,16 +119,18 @@ buttons.forEach((button) => {
         if (firstNum === null) {
           firstNum = parseInt(num);
         }
-        num = "";
+        num = " ";
         operator = button.textContent;
       } else {
-        secondNum = parseInt(num);
-        answer = operate(firstNum, secondNum, operator);
-        operator = button.textContent;
-        display.textContent = answer + " / ";
-        firstNum = answer;
-        secondNum = null;
-        num = "";
+        if (num !== " ") {
+          secondNum = parseInt(num);
+          answer = operate(firstNum, secondNum, operator);
+          operator = button.textContent;
+          display.textContent = answer + " / ";
+          firstNum = answer;
+          secondNum = null;
+          num = "";
+        }
       }
     } else if (button.textContent === "=") {
       if (typeof firstNum === "number") {
