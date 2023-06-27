@@ -133,7 +133,7 @@ buttons.forEach((button) => {
         }
       }
     } else if (button.textContent === "=") {
-      if (typeof firstNum === "number") {
+      if (typeof firstNum === "number" && typeof operator === "string") {
         secondNum = parseInt(num);
         answer = operate(firstNum, secondNum, operator);
         display.textContent = answer;
@@ -141,6 +141,8 @@ buttons.forEach((button) => {
         secondNum = null;
         operator = null;
         num = "";
+      } else {
+        display.textContent = "Could not calculate";
       }
     } else if (button.textContent === "clear") {
       display.textContent = "";
