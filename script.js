@@ -5,7 +5,7 @@ let operator = null;
 
 function add(firstNum, secondNum) {
   if (typeof firstNum === "number" && typeof secondNum === "number") {
-    return firstNum + secondNum;
+    return parseFloat((firstNum + secondNum).toFixed(4));
   } else {
     return "Can not subtract non-numbers.";
   }
@@ -13,7 +13,7 @@ function add(firstNum, secondNum) {
 
 function subtract(firstNum, secondNum) {
   if (typeof firstNum === "number" && typeof secondNum === "number") {
-    return firstNum - secondNum;
+    return parseFloat((firstNum - secondNum).toFixed(4));
   } else {
     return "Can not add non-numbers.";
   }
@@ -21,7 +21,7 @@ function subtract(firstNum, secondNum) {
 
 function multiply(firstNum, secondNum) {
   if (typeof firstNum === "number" && typeof secondNum === "number") {
-    return firstNum * secondNum;
+    return parseFloat((firstNum * secondNum).toFixed(4));
   } else {
     return "Can not multiply non-numbers.";
   }
@@ -32,7 +32,7 @@ function divide(dividend, divisor) {
     if (divisor === 0) {
       return "Nah bro.";
     } else {
-      return dividend / divisor;
+      return parseFloat((dividend / divisor).toFixed(4));
     }
   } else {
     return "Can not divide non-numbers.";
