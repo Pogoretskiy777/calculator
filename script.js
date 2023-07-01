@@ -71,7 +71,7 @@ buttons.forEach((button) => {
         if (num !== " ") {
           secondNum = parseFloat(num);
           if (Number.isInteger(secondNum)) {
-            secondNum.parseInt(secondNum);
+            secondNum = parseInt(secondNum, 10);
           }
           answer = operate(firstNum, secondNum, operator);
           operator = button.textContent;
@@ -96,7 +96,7 @@ buttons.forEach((button) => {
         if (num !== " ") {
           secondNum = parseFloat(num);
           if (Number.isInteger(secondNum)) {
-            secondNum.parseInt(secondNum);
+            secondNum = parseInt(secondNum, 10);
           }
           answer = operate(firstNum, secondNum, operator);
           operator = button.textContent;
@@ -121,7 +121,7 @@ buttons.forEach((button) => {
         if (num !== " ") {
           secondNum = parseFloat(num);
           if (Number.isInteger(secondNum)) {
-            secondNum.parseInt(secondNum);
+            secondNum = parseInt(secondNum, 10);
           }
           answer = operate(firstNum, secondNum, operator);
           operator = button.textContent;
@@ -146,7 +146,7 @@ buttons.forEach((button) => {
         if (num !== " ") {
           secondNum = parseFloat(num);
           if (Number.isInteger(secondNum)) {
-            secondNum.parseInt(secondNum);
+            secondNum = parseInt(secondNum, 10);
           }
           answer = operate(firstNum, secondNum, operator);
           operator = button.textContent;
@@ -160,7 +160,7 @@ buttons.forEach((button) => {
       if (typeof firstNum === "number" && typeof operator === "string") {
         secondNum = parseFloat(num);
         if (Number.isInteger(secondNum)) {
-          secondNum.parseInt(secondNum);
+          secondNum = parseInt(secondNum, 10);
         }
         answer = operate(firstNum, secondNum, operator);
         display.textContent = answer;
