@@ -44,7 +44,7 @@ function operate(firstNum, secondNum, operator) {
     return add(firstNum, secondNum);
   } else if (operator === "-") {
     return subtract(firstNum, secondNum);
-  } else if (operator === "x") {
+  } else if (operator === "x" || operator === "*") {
     return multiply(firstNum, secondNum);
   } else if (operator == "/") {
     return divide(firstNum, secondNum);
@@ -187,4 +187,140 @@ buttons.forEach((button) => {
       num += button.textContent.toString();
     }
   });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.shiftKey && event.key === "+") {
+    if (operator === null) {
+      display.textContent += " + ";
+      if (firstNum === null) {
+        firstNum = parseFloat(num);
+        if (Number.isInteger(firstNum)) {
+          firstNum = parseInt(firstNum);
+        }
+      }
+      num = " ";
+      operator = event.key;
+    } else {
+      if (num !== " ") {
+        secondNum = parseFloat(num);
+        if (Number.isInteger(secondNum)) {
+          secondNum = parseInt(secondNum, 10);
+        }
+        answer = operate(firstNum, secondNum, operator);
+        operator = event.key;
+        display.textContent = answer + " + ";
+        firstNum = answer;
+        secondNum = null;
+        num = " ";
+      }
+    }
+  } else if (event.key === "-") {
+    if (operator === null) {
+      display.textContent += " - ";
+      if (firstNum === null) {
+        firstNum = parseFloat(num);
+        if (Number.isInteger(firstNum)) {
+          firstNum = parseInt(firstNum);
+        }
+      }
+      num = " ";
+      operator = event.key;
+    } else {
+      if (num !== " ") {
+        secondNum = parseFloat(num);
+        if (Number.isInteger(secondNum)) {
+          secondNum = parseInt(secondNum, 10);
+        }
+        answer = operate(firstNum, secondNum, operator);
+        operator = event.key;
+        display.textContent = answer + " - ";
+        firstNum = answer;
+        secondNum = null;
+        num = " ";
+      }
+    }
+  } else if (event.shiftKey && event.key === "*") {
+    if (operator === null) {
+      display.textContent += " x ";
+      if (firstNum === null) {
+        firstNum = parseFloat(num);
+        if (Number.isInteger(firstNum)) {
+          firstNum = parseInt(firstNum);
+        }
+      }
+      num = " ";
+      operator = event.key;
+    } else {
+      if (num !== " ") {
+        secondNum = parseFloat(num);
+        if (Number.isInteger(secondNum)) {
+          secondNum = parseInt(secondNum, 10);
+        }
+        answer = operate(firstNum, secondNum, operator);
+        operator = event.key;
+        display.textContent = answer + " x ";
+        firstNum = answer;
+        secondNum = null;
+        num = " ";
+      }
+    }
+  } else if (event.key === "/") {
+    if (operator === null) {
+      display.textContent += " / ";
+      if (firstNum === null) {
+        firstNum = parseFloat(num);
+        if (Number.isInteger(firstNum)) {
+          firstNum = parseInt(firstNum);
+        }
+      }
+      num = " ";
+      operator = event.key;
+    } else {
+      if (num !== " ") {
+        secondNum = parseFloat(num);
+        if (Number.isInteger(secondNum)) {
+          secondNum = parseInt(secondNum, 10);
+        }
+        answer = operate(firstNum, secondNum, operator);
+        operator = event.key;
+        display.textContent = answer + " / ";
+        firstNum = answer;
+        secondNum = null;
+        num = " ";
+      }
+    }
+  } else if (event.key === "=" || event.key === "Enter") {
+    if (typeof firstNum === "number" && typeof operator === "string") {
+      secondNum = parseFloat(num);
+      if (Number.isInteger(secondNum)) {
+        secondNum = parseInt(secondNum, 10);
+      }
+      answer = operate(firstNum, secondNum, operator);
+      display.textContent = answer;
+      firstNum = answer;
+      secondNum = null;
+      operator = null;
+      num = " ";
+    } else {
+      display.textContent = "Could not calculate";
+    }
+  } else if (event.key === "Delete" || event.key === "Backspace") {
+    display.textContent = "";
+    num = " ";
+    firstNum = null;
+    secondNum = null;
+    operator = null;
+  } else if (event.key === ".") {
+    if (!num.includes(".")) {
+      display.textContent += event.key;
+      num += event.key;
+    }
+  } else {
+    const keyPressed = parseInt(event.key);
+    if (!isNaN(keyPressed) && keyPressed >= 0 && keyPressed <= 9) {
+      display.textContent += event.key;
+      num += event.key.toString();
+    }
+  }
 });
