@@ -78,7 +78,7 @@ buttons.forEach((button) => {
           display.textContent = answer + " + ";
           firstNum = answer;
           secondNum = null;
-          num = "";
+          num = " ";
         }
       }
     } else if (button.textContent === "-") {
@@ -103,7 +103,7 @@ buttons.forEach((button) => {
           display.textContent = answer + " - ";
           firstNum = answer;
           secondNum = null;
-          num = "";
+          num = " ";
         }
       }
     } else if (button.textContent === "x") {
@@ -128,7 +128,7 @@ buttons.forEach((button) => {
           display.textContent = answer + " x ";
           firstNum = answer;
           secondNum = null;
-          num = "";
+          num = " ";
         }
       }
     } else if (button.textContent === "/") {
@@ -153,7 +153,7 @@ buttons.forEach((button) => {
           display.textContent = answer + " / ";
           firstNum = answer;
           secondNum = null;
-          num = "";
+          num = " ";
         }
       }
     } else if (button.textContent === "=") {
@@ -167,13 +167,13 @@ buttons.forEach((button) => {
         firstNum = answer;
         secondNum = null;
         operator = null;
-        num = "";
+        num = " ";
       } else {
         display.textContent = "Could not calculate";
       }
     } else if (button.textContent === "clear") {
       display.textContent = "";
-      num = "";
+      num = " ";
       firstNum = null;
       secondNum = null;
       operator = null;
